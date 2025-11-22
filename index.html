@@ -31,25 +31,21 @@ I am a slightly blue avocado!
               zoom: 4,
             }),
           });
-      </script>
 
-      <script>
-        import Map from 'ol/Map.js';
-        import View from 'ol/View.js';
-        import OSM from 'ol/source/OSM.js';
-        import TileLayer from 'ol/layer/Tile.js';
-        
-        new Map({
-          layers: [
-            new TileLayer({source: new OSM()}),
-          ],
-          view: new View({
-            center: [0, 0],
-            zoom: 2,
+        const bourndries = new ol.layer.Vector({
+          source: new ol.source.Vector({
+            url: 'https://cloud.maptiler.com/data/019a8f7b-6646-75a5-b3d7-244a2ba72bb9/#5.61/38.341/-92.436',
+            format: new ol.format.GeoJSON()
           }),
-          target: 'map',
-        });
-        </script>
+          style: new ol.style.Style({
+            image: new ol.style.Icon({
+
+            })
+          })
+        })
+
+        map.addlayer(bourndries)
+      </script>
         
    </body>
 </html>
